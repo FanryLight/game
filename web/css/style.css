@@ -1,0 +1,118 @@
+.field-cell {
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+
+.container {
+    width: 302px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+body {
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-size: 17px;
+    line-height: 23px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 25px;
+}
+.center {
+    text-align: center;
+}
+
+.play {
+    display: block;
+    margin: 20px 0 10px 0;
+    font-weight: bold;
+    text-decoration: none;
+    color: limegreen;
+    font-size: 26px;
+}
+
+.play:hover {
+    color: green;
+}
+
+.logout {
+    text-decoration: none;
+    color: slateblue;
+    font-size: 19px;
+}
+
+.logout:hover {
+    color: darkslateblue;
+}
+
+.field td{
+    padding: -1px;
+    border: 1px solid darkgrey;
+}
+
+table {
+    border-spacing: 0;
+    border: 1px solid darkgrey;
+}
+
+.login {
+    font-size: 24px;
+}
+
+.board {
+    margin: 15px 0;
+}
+
+.sign {
+    font-size: 45px;
+    font-weight: 900;
+    margin: 0 10px;
+}
+
+.o {
+    color: lightsteelblue;
+}
+
+.x {
+    color: steelblue;
+}
+
+.sign-big {
+    text-align: center;
+    font-size: 75px;
+    font-weight: 900;
+}
+
+.message {
+    display: block;
+    margin: 10px;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
+.yellow {
+    color: orange;
+}
+
+input {
+    width: 200px;
+    height: 24px;
+    padding: 2px 8px;
+    margin: 2px;
+    border: 1px solid lightgrey;
+    border-radius: 3px;
+}
+
+.button {
+    background-color: lightsteelblue;
+    color: whitesmoke;
+    font-weight: 600;
+}
