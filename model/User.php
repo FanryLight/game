@@ -97,7 +97,25 @@ class User implements iEntity
 
     public static function findAll()
     {
-        // TODO: Implement findAll() method.
+        $dbConnector = DBConnector::getInstance();
+        $query = "SELECT * FROM user";
+        $stmt = $dbConnector->query($query);
+        if (!$stmt) {
+            return null;
+        }
+        $usersInfo = $stmt->fetchAll();
+        if ($usersInfo) {
+            $users = [];
+            foreach ($usersInfo as $userInfo) {
+                $user = new self($userInfo['login'], $userInfo['password'], $userInfo['id'], true);
+                $user->games = $userInfo['games'];
+                $user->wins = $userInfo['wins'];
+                $user->defeats = $userInfo['defeats'];
+                $users[] = $user;
+            }
+            return $users;
+        }
+        return null;
     }
 
     ///////////////////////////////////////

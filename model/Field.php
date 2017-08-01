@@ -57,12 +57,28 @@ class Field implements iEntity
     }
 
     public static function findBy($parameter, $value) {
-        // TODO: Implement () method.
+        $query = "SELECT * FROM field WHERE $parameter = $value";
+        return self::fieldByQuery($query);
     }
 
     public static function findAll()
     {
-        // TODO: Implement findAll() method.
+        $dbConnector = DBConnector::getInstance();
+        $query = "SELECT * FROM field";
+        $stmt = $dbConnector->query($query);
+        if (!$stmt) {
+            return null;
+        }
+        $fieldsInfo = $stmt->fetchAll();
+        if ($fieldsInfo) {
+            $fields = [];
+            foreach ($fieldsInfo as $fieldInfo) {
+                $field = json_decode($fieldInfo['field'], true);
+                $fields[] = new Field($field, $fieldInfo['id']);
+            }
+            return $fields;
+        }
+        return null;
     }
 
     // PRIVATE FUNCTIONS

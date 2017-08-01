@@ -98,7 +98,27 @@ class Game implements iEntity
 
     public static function findAll()
     {
-        // TODO: Implement findAll() method.
+        $dbConnector = DBConnector::getInstance();
+        $query = "SELECT * FROM game";
+        $stmt = $dbConnector->query($query);
+        if (!$stmt) {
+            return null;
+        }
+        $gamesInfo = $stmt->fetchAll();
+        if ($gamesInfo) {
+            $games = [];
+            foreach ($gamesInfo as $gameInfo) {
+                $games[] = new Game($gameInfo['user_id'],
+                    $gameInfo['opponent_id'],
+                    $gameInfo['turn'],
+                    $gameInfo['sign'],
+                    $gameInfo['field_id'],
+                    $gameInfo['id'],
+                    $gameInfo['status']);
+            }
+            return $games;
+        }
+        return null;
     }
 
     ///////////////////////////////////////
